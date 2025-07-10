@@ -1,15 +1,10 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import Maestro from "@/sys/Maestro.tsx";
 
 class Bootloader extends React.Component {
   render() {
-    return (
-      <>
-        <Maestro/>
-      </>
-    )
+    return <Maestro/>
   }
 }
 
