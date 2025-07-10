@@ -8,5 +8,4 @@ class Bootloader extends React.Component {
   }
 }
 
-
 createRoot(document.getElementById('root')!).render(<Bootloader />)
