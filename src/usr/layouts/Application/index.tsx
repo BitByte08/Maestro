@@ -4,8 +4,9 @@ import Header from "./components/Header";
 import RightSide from "./components/RightSide";
 import LeftSide from "./components/LeftSide";
 import Bottom from "./components/Bottom";
-import { ContentContainer } from "./styles";
+import { BodyContainer, ContentContainer } from "./styles";
 import LeftCorner from "@/usr/layouts/Application/components/LeftCorner.tsx";
+import RightCorner from "@/usr/layouts/Application/components/RightCorner.tsx";
 
 const Application: React.FC = () => {
   const ui = useUI();
@@ -22,12 +23,16 @@ const Application: React.FC = () => {
       }}
     >
       <Header {...ui} />
-      <ContentContainer>
+      <BodyContainer>
+        <ContentContainer>
+
+        </ContentContainer>
         <RightSide {...ui} />
+        <RightCorner {...ui} />
         <LeftSide {...ui} />
         <LeftCorner {...ui} />
         <Bottom {...ui} />
-      </ContentContainer>
+      </BodyContainer>
     </section>
   );
 };
