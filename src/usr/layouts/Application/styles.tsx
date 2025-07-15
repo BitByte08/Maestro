@@ -1,0 +1,11 @@
+import styled from 'styled-components';
+
+export const HeaderContainer = styled.button`
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2rem;
+`
+export const ContantContainer = styled.div`
+    position: absolute;
+    top: 2rem; left: 0; right: 0; bottom: 0;
+`
