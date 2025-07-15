@@ -5,6 +5,7 @@ import RightSide from "./components/RightSide";
 import LeftSide from "./components/LeftSide";
 import Bottom from "./components/Bottom";
 import { ContentContainer } from "./styles";
+import LeftCorner from "@/usr/layouts/Application/components/LeftCorner.tsx";
 
 const Application: React.FC = () => {
   const ui = useUI();
@@ -24,13 +25,8 @@ const Application: React.FC = () => {
       <ContentContainer>
         <RightSide {...ui} />
         <LeftSide {...ui} />
+        <LeftCorner {...ui} />
         <Bottom {...ui} />
-        <button
-          className="draggable"
-          style={{ position: "absolute", left: 0 }}
-        >
-          🧍
-        </button>
       </ContentContainer>
     </section>
   );

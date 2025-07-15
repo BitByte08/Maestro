@@ -11,6 +11,12 @@ export const SideContainer = styled.button`
     width: 4px;
     padding: 0; margin: 0;
 `;
+export const CornerContainer = styled.button`
+    position: absolute;
+    bottom: 0;
+    width: 4px; height: 4px;
+    padding: 0; margin: 0;
+`
 export const BottomContainer = styled.button`
     position: absolute;
     bottom: 0; left: 4px; right: 4px;
