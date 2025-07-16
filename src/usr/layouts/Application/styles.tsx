@@ -44,5 +44,8 @@ export const BodyContainer = styled.div`
 `;
 export const ContentContainer = styled.div`
     position: absolute;
-    top: .5rem; left: .5rem; right: .5rem; bottom: .5rem;
+    top: 0; left: .5rem; right: .5rem; bottom: .5rem;
+    background-color: #242424;
+    backdrop-filter: blur(16px);
+    opacity: 50%;
 `

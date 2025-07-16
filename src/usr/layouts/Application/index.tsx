@@ -1,12 +1,7 @@
 import React from "react";
 import { useUI } from "./hooks/useUI";
-import Header from "./components/Header";
-import RightSide from "./components/RightSide";
-import LeftSide from "./components/LeftSide";
-import Bottom from "./components/Bottom";
 import { BodyContainer, ContentContainer } from "./styles";
-import LeftCorner from "@/usr/layouts/Application/components/LeftCorner.tsx";
-import RightCorner from "@/usr/layouts/Application/components/RightCorner.tsx";
+import Resize from "./components/ResizeHandles";
 
 const Application: React.FC = () => {
   const ui = useUI();
@@ -22,16 +17,16 @@ const Application: React.FC = () => {
         width: `${ui.size.width + ui.sizeOffset.width}px`,
       }}
     >
-      <Header {...ui} />
+      <Resize.Header {...ui} />
       <BodyContainer>
         <ContentContainer>
 
         </ContentContainer>
-        <RightSide {...ui} />
-        <RightCorner {...ui} />
-        <LeftSide {...ui} />
-        <LeftCorner {...ui} />
-        <Bottom {...ui} />
+        <Resize.RightSide {...ui} />
+        <Resize.RightCorner {...ui} />
+        <Resize.LeftSide {...ui} />
+        <Resize.LeftCorner {...ui} />
+        <Resize.Bottom {...ui} />
       </BodyContainer>
     </section>
   );
