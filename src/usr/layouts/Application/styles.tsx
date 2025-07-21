@@ -38,14 +38,21 @@ export const BottomContainer = styled.button`
         cursor: row-resize;
     }
 `;
-export const BodyContainer = styled.div`
+export const BodyContainer = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "windowType",
+})`
     position: absolute;
-    top: 2rem; left: 0; right: 0; bottom: 0;
+    top: ${({windowType}) => (windowType != "frameless" ? "2rem" : 0)}; left: 0; right: 0; bottom: 0;
 `;
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== "windowType",
+})`
     position: absolute;
-    top: 0; left: .5rem; right: .5rem; bottom: .5rem;
+    top: 0; 
+    left: ${({windowType}) => (windowType != "frameless" ? ".5rem" : 0)};; 
+    right: ${({windowType}) => (windowType != "frameless" ? ".5rem" : 0)};; 
+    bottom: ${({windowType}) => (windowType != "frameless" ? ".5rem" : 0)};;
     background-color: #242424;
     backdrop-filter: blur(16px);
     opacity: 50%;
-`
+`;

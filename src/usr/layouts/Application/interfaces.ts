@@ -5,3 +5,7 @@ export interface ApplicationProps {
   children?: React.ReactNode,
   taskConfig: TaskConfig,
 }
+
+export interface StyleContainerProps {
+  windowType?: "framed" | "frameless";
+}

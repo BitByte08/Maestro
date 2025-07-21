@@ -71,6 +71,7 @@ export const LeftSide: React.FC<Props> = ({
 
 export const RightCorner: React.FC<Props> = ({ setSize, setSizeOffset }) => {
   const onRelativePositionChange = useCallback((x: number, y: number) => {
+    console.log(x);
     setSizeOffset({ width: x, height: y });
   }, [setSizeOffset]);
   const onEnd = useCallback((x: number, y: number) => {
