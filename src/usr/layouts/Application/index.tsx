@@ -6,7 +6,7 @@ import type { ApplicationProps } from './interfaces';
 
 const Application: React.FC<ApplicationProps> = ({children, taskConfig}) => {
   const ui = useUI();
-  const windowType: "frames" | "frameless" = taskConfig.windowType;
+  const windowType: "framed" | "frameless" = taskConfig.windowType;
   const isFull: "width" | "height" | "all" = taskConfig.isFull;
   useEffect(() => {
     ui.setPosition(taskConfig.position?taskConfig.position:ui.position);
@@ -19,8 +19,8 @@ const Application: React.FC<ApplicationProps> = ({children, taskConfig}) => {
         left: 0,
         top: 0,
         transform: `translate(${ui.position.x + ui.positionOffset.x}rem, ${ui.position.y + ui.positionOffset.y}rem)`,
-        height: `${(isFull == "height" || isFull == "all" ?"100%":(ui.size.height + ui.sizeOffset.height) as string +"rem")}`,
-        width: `${(isFull == "width" || isFull == "all" ?"100%":(ui.size.width + ui.sizeOffset.width) as string +"rem")}`,
+        height: `${(isFull == "height" || isFull == "all" ?"100%":(ui.size.height + ui.sizeOffset.height).toString() + "rem")}`,
+        width: `${(isFull == "width" || isFull == "all" ?"100%":(ui.size.width + ui.sizeOffset.width).toString() + "rem")}`,
       }}
     >
       {windowType=="framed" && <Resize.Header {...ui} />}

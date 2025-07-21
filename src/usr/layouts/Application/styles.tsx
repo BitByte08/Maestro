@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import type {StyleContainerProps} from "@/usr/layouts/Application/interfaces.ts";
 
 export const HeaderContainer = styled.button`
     position: absolute;
@@ -40,13 +41,13 @@ export const BottomContainer = styled.button`
 `;
 export const BodyContainer = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "windowType",
-})`
+})<StyleContainerProps>`
     position: absolute;
     top: ${({windowType}) => (windowType != "frameless" ? "2rem" : 0)}; left: 0; right: 0; bottom: 0;
 `;
 export const ContentContainer = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "windowType",
-})`
+})<StyleContainerProps>`
     position: absolute;
     top: 0; 
     left: ${({windowType}) => (windowType != "frameless" ? ".5rem" : 0)};; 
