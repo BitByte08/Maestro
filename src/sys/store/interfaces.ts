@@ -4,7 +4,12 @@ export interface Task {
   pid: string;
   name: string;
   component: React.FC;
-  // 필요에 따라 상태나 UI 정보 추가 가능
+  taskConfig: TaskConfig;
+}
+
+export interface TaskConfig {
+  position: { x: number, y: number };
+  windowType?: "framed" | "frameless";
 }
 
 export interface TaskStore {

@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useUI } from "./hooks/useUI";
 import * as Style from "./styles";
 import Resize from "./components/ResizeHandles";
 import type { ApplicationProps } from './interfaces';
 
-const Application: React.FC<ApplicationProps> = ({children}) => {
+const Application: React.FC<ApplicationProps> = ({children, taskConfig}) => {
   const ui = useUI();
-
+  const windowType = taskConfig.windowType;
+  useEffect(()=>{
+    ui.setPosition(taskConfig.position);
+  },[taskConfig]);
   return (
     <section
       style={{
@@ -18,16 +21,18 @@ const Application: React.FC<ApplicationProps> = ({children}) => {
         width: `${ui.size.width + ui.sizeOffset.width}px`,
       }}
     >
-      <Resize.Header {...ui} />
+      {windowType=="framed" && <Resize.Header {...ui} />}
       <Style.BodyContainer>
         <Style.ContentContainer>
           {children}
         </Style.ContentContainer>
-        <Resize.RightSide {...ui} />
-        <Resize.RightCorner {...ui} />
-        <Resize.LeftSide {...ui} />
-        <Resize.LeftCorner {...ui} />
-        <Resize.Bottom {...ui} />
+        {windowType=="framed" && <>
+          <Resize.RightSide {...ui} />
+          <Resize.RightCorner {...ui} />
+          <Resize.LeftSide {...ui} />
+          <Resize.LeftCorner {...ui} />
+          <Resize.Bottom {...ui} />
+        </>}
       </Style.BodyContainer>
     </section>
   );

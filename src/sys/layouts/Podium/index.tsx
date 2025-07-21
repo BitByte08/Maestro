@@ -9,7 +9,7 @@ const Podium: React.FC = () => {
       {tasks && tasks.map((task, index) => {
         const Component: React.FC = task.component;
         return (
-          <Application key={index}>
+          <Application key={index} taskConfig={task.taskConfig} >
             <Component />
           </Application>
         )
