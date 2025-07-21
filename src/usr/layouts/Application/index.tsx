@@ -7,9 +7,10 @@ import type { ApplicationProps } from './interfaces';
 const Application: React.FC<ApplicationProps> = ({children, taskConfig}) => {
   const ui = useUI();
   const windowType = taskConfig.windowType;
-  useEffect(()=>{
-    ui.setPosition(taskConfig.position);
-  },[taskConfig]);
+  useEffect(() => {
+    ui.setPosition(taskConfig.position?taskConfig.position:ui.position);
+    ui.setSize(taskConfig.size?taskConfig.size:ui.size);
+  }, [taskConfig]);
   return (
     <section
       style={{
