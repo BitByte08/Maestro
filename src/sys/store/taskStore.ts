@@ -2,7 +2,7 @@ import { create, type StoreApi , type UseBoundStore } from 'zustand';
 import type { TaskStore } from './interfaces';
 
 
-export const useTaskStore:UseBoundStore<StoreApi<TaskStore>> = create<TaskStore>((set) => ({
+export const useTaskStore: UseBoundStore<StoreApi<TaskStore>> = create<TaskStore>((set) => ({
   tasks: [],
   addTask: (task) => set((state) => {
     // 중복 pid 검사(optional)

@@ -1,6 +1,6 @@
 import React from "react";
 
-interface Task {
+export interface Task {
   pid: string;
   name: string;
   component: React.FC;
