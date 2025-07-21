@@ -6,9 +6,9 @@ import type { useUI } from "../hooks/useUI";
 type Props = ReturnType<typeof useUI>;
 
 export const Bottom: React.FC<Props> = ({ setSize, setSizeOffset }) => {
-  const onRelativePositionChange = useCallback((_x: number, y: number) => setSizeOffset({ width: 0, height: y }), [setSizeOffset]);
+  const onRelativePositionChange = useCallback((_x: number, y: number) => setSizeOffset({ width: 0, height: (y/16) }), [setSizeOffset]);
   const onEnd = useCallback((_x: number, y: number) => {
-    setSize((size) => ({ width: size.width, height: size.height + y }));
+    setSize((size) => ({ width: size.width, height: size.height + (y/16) }));
     setSizeOffset({ width: 0, height: 0 });
   }, [setSize, setSizeOffset]);
   const { elementProps } = useDrag({ onRelativePositionChange, onEnd });
@@ -16,9 +16,9 @@ export const Bottom: React.FC<Props> = ({ setSize, setSizeOffset }) => {
 };
 
 export const Header: React.FC<Props> = ({ setPosition, setPositionOffset }) => {
-  const onRelativePositionChange = useCallback((x: number, y: number) => setPositionOffset({ x, y }), [setPositionOffset]);
+  const onRelativePositionChange = useCallback((x: number, y: number) => setPositionOffset({ x: (x/16), y: (y/16) }), [setPositionOffset]);
   const onEnd = useCallback((x: number, y: number) => {
-    setPosition((pos) => ({ x: pos.x + x, y: pos.y + y }));
+    setPosition((pos) => ({ x: pos.x + (x/16), y: pos.y + (y/16) }));
     setPositionOffset({ x: 0, y: 0 });
   }, [setPosition, setPositionOffset]);
   const { elementProps } = useDrag({ onRelativePositionChange, onEnd });
@@ -36,12 +36,12 @@ export const LeftCorner: React.FC<Props> = ({
                                               setSizeOffset
                                             }) => {
   const onRelativePositionChange = useCallback((x: number, y: number) => {
-    setPositionOffset({ x: x, y: 0 });
-    setSizeOffset({ width: -x, height: y });
+    setPositionOffset({ x: (x/16), y: 0 });
+    setSizeOffset({ width: -(x/16), height: (y/16) });
   }, [setPositionOffset, setSizeOffset]);
   const onEnd = useCallback((x: number, y: number) => {
-    setPosition((position) => ({ x: position.x +  x, y: position.y }));
-    setSize((size) => ({ width: size.width - x, height: size.height + y }));
+    setPosition((position) => ({ x: position.x + (x/16), y: position.y }));
+    setSize((size) => ({ width: size.width - (x/16), height: size.height + (y/16) }));
     setPositionOffset({ x: 0, y: 0 });
     setSizeOffset({ width: 0, height: 0 });
   }, [setPosition, setSize, setPositionOffset, setSizeOffset]);
@@ -56,12 +56,12 @@ export const LeftSide: React.FC<Props> = ({
                                             setSizeOffset,
                                           }) => {
   const onRelativePositionChange = useCallback((x: number) => {
-    setSizeOffset({ width: -x, height: 0 });
-    setPositionOffset({ x, y: 0 });
+    setSizeOffset({ width: -(x/16), height: 0 });
+    setPositionOffset({ x: (x/16), y: 0 });
   }, [setSizeOffset, setPositionOffset]);
   const onEnd = useCallback((x: number) => {
-    setSize((size) => ({ width: size.width - x, height: size.height }));
-    setPosition((position) => ({ x: position.x + x, y: position.y }));
+    setSize((size) => ({ width: size.width - (x/16), height: size.height }));
+    setPosition((position) => ({ x: position.x + (x/16), y: position.y }));
     setSizeOffset({ width: 0, height: 0 });
     setPositionOffset({ x: 0, y: 0 });
   }, [setSize, setPosition, setSizeOffset, setPositionOffset]);
@@ -71,11 +71,10 @@ export const LeftSide: React.FC<Props> = ({
 
 export const RightCorner: React.FC<Props> = ({ setSize, setSizeOffset }) => {
   const onRelativePositionChange = useCallback((x: number, y: number) => {
-    console.log(x);
-    setSizeOffset({ width: x, height: y });
+    setSizeOffset({ width: (x/16), height: (y/16) });
   }, [setSizeOffset]);
   const onEnd = useCallback((x: number, y: number) => {
-    setSize((size) => ({ width: size.width + x, height: size.height + y }));
+    setSize((size) => ({ width: size.width + (x/16), height: size.height + (y/16) }));
     setSizeOffset({ width: 0, height: 0 });
   }, [setSize, setSizeOffset]);
   const { elementProps } = useDrag({ onRelativePositionChange, onEnd });
@@ -83,9 +82,9 @@ export const RightCorner: React.FC<Props> = ({ setSize, setSizeOffset }) => {
 };
 
 export const RightSide: React.FC<Props> = ({ setSize, setSizeOffset }) => {
-  const onRelativePositionChange = useCallback((x: number) => setSizeOffset({ width: x, height: 0 }), [setSizeOffset]);
+  const onRelativePositionChange = useCallback((x: number) => setSizeOffset({ width: (x/16), height: 0 }), [setSizeOffset]);
   const onEnd = useCallback((x: number) => {
-    setSize((size) => ({ width: size.width + x, height: size.height }));
+    setSize((size) => ({ width: size.width + (x/16), height: size.height }));
     setSizeOffset({ width: 0, height: 0 });
   }, [setSize, setSizeOffset]);
   const { elementProps } = useDrag({ onRelativePositionChange, onEnd });

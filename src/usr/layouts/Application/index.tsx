@@ -18,9 +18,9 @@ const Application: React.FC<ApplicationProps> = ({children, taskConfig}) => {
         position: 'fixed',
         left: 0,
         top: 0,
-        transform: `translate(${ui.position.x + ui.positionOffset.x}px, ${ui.position.y + ui.positionOffset.y}px)`,
-        height: `${(isFull == "height" || isFull == "all" ?"100%":(ui.size.height + ui.sizeOffset.height) as string +"px")}`,
-        width: `${(isFull == "width" || isFull == "all" ?"100%":(ui.size.width + ui.sizeOffset.width) as string +"px")}`,
+        transform: `translate(${ui.position.x + ui.positionOffset.x}rem, ${ui.position.y + ui.positionOffset.y}rem)`,
+        height: `${(isFull == "height" || isFull == "all" ?"100%":(ui.size.height + ui.sizeOffset.height) as string +"rem")}`,
+        width: `${(isFull == "width" || isFull == "all" ?"100%":(ui.size.width + ui.sizeOffset.width) as string +"rem")}`,
       }}
     >
       {windowType=="framed" && <Resize.Header {...ui} />}

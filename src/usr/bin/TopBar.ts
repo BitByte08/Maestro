@@ -3,7 +3,7 @@ import type { Task, TaskConfig } from "@/sys/store/interfaces.ts";
 
 const AppConfig: TaskConfig = {
   position: { x: 0, y: 0 },
-  size: {width: 0, height: 64},
+  size: {width: 0, height: 2},
   windowType: "frameless",
   isFull: "width"
 }
