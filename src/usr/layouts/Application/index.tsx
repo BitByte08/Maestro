@@ -1,9 +1,10 @@
 import React from "react";
 import { useUI } from "./hooks/useUI";
-import { BodyContainer, ContentContainer } from "./styles";
+import * as Style from "./styles";
 import Resize from "./components/ResizeHandles";
+import type { ApplicationProps } from './interfaces';
 
-const Application: React.FC = () => {
+const Application: React.FC<ApplicationProps> = ({children}) => {
   const ui = useUI();
 
   return (
@@ -18,16 +19,16 @@ const Application: React.FC = () => {
       }}
     >
       <Resize.Header {...ui} />
-      <BodyContainer>
-        <ContentContainer>
-
-        </ContentContainer>
+      <Style.BodyContainer>
+        <Style.ContentContainer>
+          {children}
+        </Style.ContentContainer>
         <Resize.RightSide {...ui} />
         <Resize.RightCorner {...ui} />
         <Resize.LeftSide {...ui} />
         <Resize.LeftCorner {...ui} />
         <Resize.Bottom {...ui} />
-      </BodyContainer>
+      </Style.BodyContainer>
     </section>
   );
 };

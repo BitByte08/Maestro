@@ -1,12 +1,11 @@
 import React from 'react';
 import '@/etc/config.css';
-import Application from "@/usr/layouts/Application/index.tsx";
+import Podium from "@/sys/layouts/Podium";
 
 const Maestro: React.FC = () => {
   return (
     <>
-      Maestro
-      <Application/>
+      <Podium />
     </>
   )
 }
