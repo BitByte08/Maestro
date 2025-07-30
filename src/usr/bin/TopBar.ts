@@ -8,8 +8,8 @@ const AppConfig: TaskConfig = {
   isFull: "width"
 }
 const TopBar: Task = {
-  pid: '',
-  name: '',
+  pid: '1',
+  name: 'TopBar',
   component: TopBarComponent,
   taskConfig: AppConfig
 }

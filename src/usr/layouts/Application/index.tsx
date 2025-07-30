@@ -7,7 +7,7 @@ import type { ApplicationProps } from './interfaces';
 const Application: React.FC<ApplicationProps> = ({children, taskConfig}) => {
   const ui = useUI();
   const windowType: "framed" | "frameless" | undefined = taskConfig.windowType;
-  const isFull: "width" | "height" | "all" = taskConfig.isFull;
+  const isFull: "width" | "height" | "all" | "none" = taskConfig.isFull;
   useEffect(() => {
     ui.setPosition(taskConfig.position?taskConfig.position:ui.position);
     ui.setSize(taskConfig.size?taskConfig.size:ui.size);

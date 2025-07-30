@@ -11,7 +11,7 @@ export interface TaskConfig {
   position?: { x: number, y: number };
   size?: { width: number, height: number };
   windowType?: "framed" | "frameless";
-  isFull: "width" | "height" | "all";
+  isFull: "width" | "height" | "all" | "none";
 }
 
 export interface TaskStore {
