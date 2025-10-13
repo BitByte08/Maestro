@@ -4,6 +4,7 @@ import type { TaskConfig } from "@/sys/store/interfaces.ts";
 export interface ApplicationProps {
   children?: React.ReactNode,
   taskConfig: TaskConfig,
+  name?: string
 }
 
 export interface StyleContainerProps {

@@ -4,7 +4,7 @@ import * as Style from "./styles";
 import Resize from "./components/ResizeHandles";
 import type { ApplicationProps } from './interfaces';
 
-const Application: React.FC<ApplicationProps> = ({children, taskConfig}) => {
+const Application: React.FC<ApplicationProps> = ({children, taskConfig, name}) => {
   const ui = useUI();
   const windowType: "framed" | "frameless" | undefined = taskConfig.windowType;
   const isFull: "width" | "height" | "all" | "none" = taskConfig.isFull;
@@ -23,7 +23,7 @@ const Application: React.FC<ApplicationProps> = ({children, taskConfig}) => {
         width: `${(isFull == "width" || isFull == "all" ?"100%":(ui.size.width + ui.sizeOffset.width).toString() + "rem")}`,
       }}
     >
-      {windowType=="framed" && <Resize.Header {...ui} />}
+      {windowType=="framed" && <Resize.Header {...ui} title={name} />}
       <Style.BodyContainer windowType={windowType}>
         <Style.ContentContainer windowType={windowType}>
           {children}
