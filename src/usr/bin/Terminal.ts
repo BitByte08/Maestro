@@ -7,11 +7,11 @@ const AppConfig: TaskConfig = {
     windowType: "framed",
     isFull: "none"
 }
-const TopBar: Task = {
+const Terminal: Task = {
     pid: '2',
     name: 'Terminal',
     component: TerminalComponent,
     taskConfig: AppConfig
 }
 
-export default TopBar;
+export default Terminal;
