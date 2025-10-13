@@ -15,7 +15,7 @@ export const Bottom: React.FC<Props> = ({ setSize, setSizeOffset }) => {
   return <Style.BottomContainer className="draggable" {...elementProps} />;
 };
 
-export const Header: React.FC<Props> = ({ setPosition, setPositionOffset }) => {
+export const Header: React.FC<Props & {title?: string}> = ({ setPosition, setPositionOffset, title }) => {
   const onRelativePositionChange = useCallback((x: number, y: number) => setPositionOffset({ x: (x/16), y: (y/16) }), [setPositionOffset]);
   const onEnd = useCallback((x: number, y: number) => {
     setPosition((pos) => ({ x: pos.x + (x/16), y: pos.y + (y/16) }));
@@ -24,7 +24,7 @@ export const Header: React.FC<Props> = ({ setPosition, setPositionOffset }) => {
   const { elementProps } = useDrag({ onRelativePositionChange, onEnd });
   return (
     <Style.HeaderContainer className="draggable" {...elementProps}>
-      Header
+      {title}
     </Style.HeaderContainer>
   );
 };
