@@ -4,6 +4,7 @@ import '@/etc/config.css';
 import Podium from "@/sys/layouts/Podium";
 import { useTaskStore } from "@/sys/store/taskStore.ts";
 import Quickly from "@/usr/bin/Quickly.ts";
+import Lister from "@/sys/layouts/Lister";
 
 const Display = styled.div`
     height: 100%;
@@ -20,7 +21,7 @@ const Maestro: React.FC = () => {
   return (
     <Display>
       <Podium />
-      <div>dfaedda</div>
+      <Lister />
     </Display>
   )
 }
