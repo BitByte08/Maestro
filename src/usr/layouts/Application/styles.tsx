@@ -53,7 +53,7 @@ export const ContentContainer = styled.div.withConfig({
     left: ${({windowType}) => (windowType != "frameless" ? ".5rem" : 0)};; 
     right: ${({windowType}) => (windowType != "frameless" ? ".5rem" : 0)};; 
     bottom: ${({windowType}) => (windowType != "frameless" ? ".5rem" : 0)};;
-    background-color: #242424;
-    backdrop-filter: blur(16px);
-    opacity: 50%;
+    //background-color: #242424;
+    //backdrop-filter: blur(16px);
+    //opacity: 50%;
 `;
