@@ -7,3 +7,6 @@ export const ShortCut: Task[] = [
   Terminal,
   TaskManager
 ];
+
+export const shortCutNames = () => ShortCut.map(app => app.name);
+export const findShortCutByName = (name: string) => ShortCut.find(app => app.name === name);

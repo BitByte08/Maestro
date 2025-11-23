@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useRef, type RefObject } from 'react';
 import * as Style from './styles.tsx';
-import { ShortCut } from '@/usr/bin';
+import { shortCutNames, findShortCutByName } from '@/usr/bin';
 import {useTaskStore} from "@/sys/store/taskStore.ts";
 import { useGrid } from './hooks/useGrid';
 
 const QuicklyComponent: React.FC = () => {
   const addTask = useTaskStore(state => state.addTask);
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const appNames = React.useMemo(() => ShortCut.map(app => app.name), []);
+  const quicklyRef = useRef<HTMLDivElement>(null);
+  const appNames = shortCutNames();
   
   const { items, handleMouseDown, getItemStyle } = useGrid({
-    containerRef: containerRef as React.RefObject<HTMLDivElement>,
+    containerRef: quicklyRef as RefObject<HTMLDivElement>,
     initialItems: appNames
   });
 
   return (
-    <Style.QuicklyContainer ref={containerRef}>
+    <Style.QuicklyContainer ref={quicklyRef}>
       {items.map((item) => {
-        const app = ShortCut.find(a => a.name === item.id);
+        const app = findShortCutByName(item.id);
         if (!app) return null;
 
         return (

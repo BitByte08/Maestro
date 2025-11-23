@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { GRID_CONFIG } from '@/etc/config';
 
 interface Position {
@@ -40,7 +40,7 @@ export const useGrid = ({ containerRef, initialItems }: UseGridProps) => {
     setItems(newItems);
   }, [initialItems, containerRef, gridSize, gap]); 
 
-  const handleMouseDown = useCallback((e: React.MouseEvent, id: string) => {
+  const handleMouseDown = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
     setDraggingId(id);
     
@@ -103,9 +103,9 @@ export const useGrid = ({ containerRef, initialItems }: UseGridProps) => {
 
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
-  }, [items, gridSize, gap]);
+  };
 
-  const getItemStyle = useCallback((itemId: string): React.CSSProperties => {
+  const getItemStyle = (itemId: string): React.CSSProperties => {
     const item = items.find(i => i.id === itemId);
     if (!item) return {};
 
@@ -125,7 +125,7 @@ export const useGrid = ({ containerRef, initialItems }: UseGridProps) => {
       top: `${item.position.y * (gridSize + gap)}rem`,
       transition: 'all 0.2s ease'
     };
-  }, [items, draggingId, currentDragPos, gridSize, gap]);
+  };
 
   return {
     items,
