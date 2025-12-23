@@ -67,11 +67,11 @@ export function createKernel() {
       serviceId: service.id,
     });
 
-    service.setup(ctx);
-
     (ctx as any).__deliver = (msg: KernelMessage) => {
       inbox.forEach((fn) => fn(msg));
     };
+
+    service.setup(ctx);
 
     return pid;
   }
