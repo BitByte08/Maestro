@@ -1,12 +1,11 @@
 export type PID = string;
 export type ServiceID = string;
-export type ProcessStatus = "running" | "terminated";
 
 export interface Process {
     pid: PID;
     serviceId: ServiceID;
     context: ServiceContext;
-    startAt: number;
+    startedAt: number;
 }
 
 export interface ServiceDefinition {
@@ -31,10 +30,10 @@ export interface KernelMessage {
 }
 
 export interface KernelEvent {
-  type: "spawn" | "terminate";
-  pid: PID;
-  serviceId: ServiceID;
-  reason?: "self" | "killed" | "crash";
+    type: "spawn" | "terminate";
+    pid: PID;
+    serviceId: ServiceID;
+    reason?: "self" | "killed" | "crash";
 }
 
 export interface KernelState {
